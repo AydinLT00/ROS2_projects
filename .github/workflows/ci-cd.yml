@@ -16,11 +16,16 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
 
-      # Step 2: Set up ROS 2 (e.g., jazzy Hawksbill)
       - name: Setup ROS 2 Jazzy
         uses: ros-tooling/setup-ros@v0.7
         with:
           required-ros-distributions: jazzy
+
+      - name: Prepare colcon workspace
+        run: |
+          # Create a standard src folder and symlink your package into it
+          mkdir -p src
+          ln -s $(pwd)/proj_1/robot_pkg_1 src/robot_pkg_1
 
       # Step 3: Install project dependencies using rosdep
       - name: Install dependencies
