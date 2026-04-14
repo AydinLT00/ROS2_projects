@@ -28,7 +28,7 @@ class SensorPublisher : public rclcpp::Node {
 
             //logging
             RCLCPP_INFO(this->get_logger(), "Publishing: linear.x=%.2f angular.z=%.2f", 
-                            message.linear.x, message.angular.z);
+                            message.linear.x, message.linear.z);
 
             publisher_->publish(message);
         }

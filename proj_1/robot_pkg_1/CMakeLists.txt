@@ -18,9 +18,14 @@ ament_target_dependencies(sensor_publisher rclcpp geometry_msgs)
 
 add_executable(testNode src/testNode.cpp)
 ament_target_dependencies(testNode rclcpp geometry_msgs)
+
+add_executable(subscriber_node src/subscriberNode)
+ament_target_dependencies(subscriber_node rclcpp geometry_msgs)
+
 install(TARGETS
   sensor_publisher
   testNode
+  subscriber_node
   DESTINATION lib/${PROJECT_NAME}
 )
 
