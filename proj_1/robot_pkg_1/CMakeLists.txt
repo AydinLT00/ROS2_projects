@@ -16,8 +16,11 @@ find_package(geometry_msgs REQUIRED)
 add_executable(sensor_publisher src/sensor_pub.cpp)
 ament_target_dependencies(sensor_publisher rclcpp geometry_msgs)
 
+add_executable(testNode src/testNode.cpp)
+ament_target_dependencies(testNode rclcpp geometry_msgs)
 install(TARGETS
   sensor_publisher
+  testNode
   DESTINATION lib/${PROJECT_NAME}
 )
 
