@@ -23,8 +23,8 @@ class SensorPublisher : public rclcpp::Node {
         void timer_callback(){
             auto message{geometry_msgs::msg::Twist()}; // initialize as a Twist object
 
-            message.linear.x{0.5};
-            message.linear.z{0.1};
+            message.linear.x = 0.5;
+            message.linear.z = 0.1;
 
             //logging
             RCLCPP_INFO(this->get_logger(), "Publishing: linear.x=%.2f angular.z=%.2f", 

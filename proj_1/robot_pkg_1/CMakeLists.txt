@@ -14,10 +14,12 @@ find_package(geometry_msgs REQUIRED)
 # find_package(<dependency> REQUIRED)
 
 add_executable(sensor_publisher src/sensor_pub.cpp)
+ament_target_dependencies(sensor_publisher rclcpp geometry_msgs)
 
 install(TARGETS
-                sensor_publisher
-                DESTINATION lib/$(PROJECT_NAME))
+  sensor_publisher
+  DESTINATION lib/${PROJECT_NAME}
+)
 
 if(BUILD_TESTING)
   find_package(ament_lint_auto REQUIRED)
