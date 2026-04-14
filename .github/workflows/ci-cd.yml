@@ -1,0 +1,47 @@
+name: ROS2 CI/CD
+
+# This workflow runs on every push and pull request to the 'main' branch
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+# A single job that builds and tests the code
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+    steps:
+      # Step 1: Check out your code from the repository
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup ROS 2 Jazzy
+        uses: ros-tooling/setup-ros@v0.7
+        with:
+          required-ros-distributions: jazzy
+
+      - name: Prepare colcon workspace
+        run: |
+          # Create a standard src folder and symlink your package into it
+          mkdir -p src
+          ln -s $(pwd)/proj_1/robot_pkg_1 src/robot_pkg_1
+
+      # Step 3: Install project dependencies using rosdep
+      - name: Install dependencies
+        run: |
+          source /opt/ros/jazzy/setup.bash
+          rosdep update
+          rosdep install --from-paths src --ignore-src -r -y
+
+      # Step 4: Build your workspace with colcon
+      - name: Build the project
+        run: |
+          source /opt/ros/jazzy/setup.bash
+          colcon build --symlink-install
+
+      # Step 5: Run all your defined tests
+      - name: Run tests
+        run: |
+          source /opt/ros/jazzy/setup.bash
+          colcon test --event-handlers console_direct+
