@@ -1,4 +1,5 @@
 float64 linear_x
+float64 linear_z
 ---
 bool success
 string message

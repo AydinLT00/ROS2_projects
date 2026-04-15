@@ -32,15 +32,16 @@ class SensorPublisher : public rclcpp::Node {
         rclcpp::Publisher<geometry_msgs::msg::Twist>::SharedPtr publisher_;
         rclcpp::TimerBase::SharedPtr timer_;
         double linear_x_;
-        
+        double linear_z_;
+
         void timer_callback(){
             auto message{geometry_msgs::msg::Twist()}; // initialize as a Twist object
 
             message.linear.x = linear_x_;
-            message.linear.z = 0.1;
+            message.linear.z = linear_z_;
 
             //logging
-            RCLCPP_INFO(this->get_logger(), "Publishing: linear.x=%.2f angular.z=%.2f", 
+            RCLCPP_INFO(this->get_logger(), "Publishing: linear.x=%.2f linear.z=%.2f", 
                             message.linear.x, message.linear.z);
 
             publisher_->publish(message);
@@ -56,15 +57,23 @@ class SensorPublisher : public rclcpp::Node {
             // Validate input (optional)
             if (request->linear_x < 0.0 || request->linear_x > 2.0) {
             response->success = false;
-            response->message = "Velocity must be between 0.0 and 2.0";
+            response->message = "Velocity_x must be between 0.0 and 2.0";
+            RCLCPP_WARN(this->get_logger(), "Invalid velocity requested: %.2f", request->linear_x);
+            return;
+            }
+
+            if (request->linear_z < 0.0 || request->linear_z > 6.0) {
+            response->success = false;
+            response->message = "Velocity_z must be between 0.0 and 6.0";
             RCLCPP_WARN(this->get_logger(), "Invalid velocity requested: %.2f", request->linear_x);
             return;
             }
             
             linear_x_ = request->linear_x;
+            linear_z_ = request->linear_z;
             response->success = true;
-            response->message = "Velocity updated to " + std::to_string(linear_x_);
-            RCLCPP_INFO(this->get_logger(), "Service called: velocity set to %.2f", linear_x_);
+            response->message = "Velocity updated to " + std::to_string(linear_x_) + " and " + std::to_string(linear_z_);
+            RCLCPP_INFO(this->get_logger(), "Service called: velocity set to %.2f and %.2f", linear_x_, linear_z_);
         }
 
         
