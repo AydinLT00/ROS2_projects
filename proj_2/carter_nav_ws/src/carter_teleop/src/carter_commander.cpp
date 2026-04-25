@@ -27,7 +27,7 @@ class CarterCommander : public rclcpp::Node {
 			auto message = geometry_msgs::msg::Twist();
 			
 			message.linear.x = 0.5;
-			message.angular.z = 0.2;
+			message.angular.z = 1.0;
 
 			publisher_->publish(message);}
 };
