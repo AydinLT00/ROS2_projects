@@ -96,18 +96,17 @@ ros2 run nav2_map_server map_saver_cli -f map_limo
 ## 🖼 Media
 
 ### Action Graphs
-| Clock & Odom | Lidar Config | Drive System |
+| Clock | Lidar Config | odom/TF |
 | :---: | :---: | :---: |
-| ![Clock Graph](link_to_image_1) | ![Lidar Graph](link_to_image_2) | ![Drive Graph](link_to_image_6) |
+| ![Clock Graph](media/clock.png) | ![Lidar Graph](media/lidar.png) | ![Drive Graph](media/odom_tf.png) |
 
-*(Note: Replace the placeholders above with your actual image paths in the repo)*
 
 ### SLAM Results
-![RViz SLAM](link_to_image_4)
+![RViz SLAM](media/rviz_map.png)
 *RViz2 showing the generated map and laser scan alignment.*
 
 ### Stage Hierarchy
-![Stage](link_to_image_5)
+![Stage](media/tree.png)
 *Correct nesting of the Lidar and Xforms.*
 
 ---
