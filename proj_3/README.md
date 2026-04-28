@@ -3,6 +3,11 @@
 </p>
 
 # Isaac Sim + ROS 2 Jazzy: SLAM with AgileX Limo
+[![ROS 2 Jazzy](https://img.shields.io/badge/ROS2-Jazzy-0659a5?logo=ros&logoColor=white)](https://docs.ros.org/en/jazzy/index.html)
+[![IsaacSim](https://img.shields.io/badge/IsaacSim-5.0.0-silver.svg)](https://docs.isaacsim.omniverse.nvidia.com/latest/index.html)
+[![SLAM](https://img.shields.io/badge/SLAM-Slam__Toolbox-brightgreen)](https://github.com/SteveMacenski/slam_toolbox)
+[![Robot](https://img.shields.io/badge/Robot-AgileX%20Limo-red)](https://www.agilex.ai/product/44)
+[![Middleware](https://img.shields.io/badge/Middleware-OmniGraph-orange)](#)
 
 This repository documents the configuration required to perform SLAM using **ROS 2 Jazzy** and **NVIDIA Isaac Sim**. 
 
