@@ -100,6 +100,10 @@ ros2 run nav2_map_server map_saver_cli -f map_limo
 
 ## 🖼 Media
 
+
+<img src="https://github.com/AydinLT00/ROS2_projects/releases/download/limo_ros_slam/limo_ros_slam_v1.gif" width="1080px">
+
+
 ### Action Graphs
 | Clock | Lidar Config | odom/TF |
 | :---: | :---: | :---: |
