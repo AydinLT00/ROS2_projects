@@ -1,14 +1,8 @@
-This is a solid technical workflow. Even if you're "working slowly," documenting these fragmented steps is exactly what makes a great GitHub repository—it helps others who are stuck on the same integration issues.
-
-Here is a structured, professional `README.md` based on your notes and images.
-
----
-
 # Isaac Sim + ROS 2 Jazzy: SLAM with AgileX Limo
 
 This repository documents the configuration required to perform SLAM using **ROS 2 Jazzy** and **NVIDIA Isaac Sim**. 
 
-Integrating Isaac Sim with ROS 2 can be challenging due to the lack of consolidated tutorials. This project serves as a step-by-step guide to configuring a robot (AgileX Limo), setting up the necessary Action Graphs, and running `slam_toolbox` to generate a map.
+This project serves as a step-by-step guide to configuring a robot (AgileX Limo), setting up the necessary Action Graphs, and running `slam_toolbox` to generate a map.
 
 ## 🛠 Prerequisites
 - **Isaac Sim** (tested on 2023.x/4.x)
