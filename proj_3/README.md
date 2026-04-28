@@ -9,7 +9,7 @@ This repository documents the configuration required to perform SLAM using **ROS
 This project serves as a step-by-step guide to configuring a robot (AgileX Limo), setting up the necessary Action Graphs, and running `slam_toolbox` to generate a map.
 
 ## 🛠 Prerequisites
-- **Isaac Sim** (tested on 2023.x/4.x)
+- **Isaac Sim** (tested on 5.0.0)
 - **ROS 2 Jazzy Jalisco**
 - **slam_toolbox** (`sudo apt install ros-jazzy-slam-toolbox`)
 - **nav2_map_server** (for saving the map)
@@ -103,20 +103,14 @@ ros2 run nav2_map_server map_saver_cli -f map_limo
 
 ### SLAM Results
 ![RViz SLAM](media/rviz_map.png)
-*RViz2 showing the generated map and laser scan alignment.*
+
 
 ### Stage Hierarchy
 ![Stage](media/tree.png)
+
 *Correct nesting of the Lidar and Xforms.*
 
 ---
-
-## 📝 Lessons Learned
-- **Collisions**: Isaac Sim Lidar requires physical colliders on meshes to "hit" objects.
-- **Stationary Odom**: Connecting simulation translation/orientation directly to the Raw Transform Tree is essential for preventing "drift" in the starting frame.
-- **Clock Sync**: Always ensure ROS 2 is using simulation time (`use_sim_time:=True`) when running with Isaac Sim.
-
---- 
 
 ### 🤝 Contributing
 This is a learning project! If you find a more efficient way to set up the Action Graphs or have tips for RTX Lidar integration, feel free to open an issue or PR.
