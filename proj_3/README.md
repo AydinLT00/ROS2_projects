@@ -1,3 +1,7 @@
+<p align="center">
+  <img src="media/banner.png" width="100%" alt="AgileX Limo Pro Structure">
+</p>
+
 # Isaac Sim + ROS 2 Jazzy: SLAM with AgileX Limo
 
 This repository documents the configuration required to perform SLAM using **ROS 2 Jazzy** and **NVIDIA Isaac Sim**. 
