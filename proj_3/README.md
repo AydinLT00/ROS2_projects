@@ -102,7 +102,7 @@ ros2 run nav2_map_server map_saver_cli -f map_limo
 
 
 ### SLAM Results
-![RViz SLAM](media/rviz_map.png)
+<img src="media/rviz_map.png" width="600px">
 
 
 ### Stage Hierarchy
